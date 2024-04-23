@@ -1,0 +1,2 @@
+email,first_name,last_name,cf:AccountNumber,cf:Age,job_title,company_name,anniversary,birthday_month,birthday_day,phone,street,street2,city,state,zip,country,cf:LastUserNumber,cf:LastAmount,cf:LastTransaction
+ddipper@@l.com,John,Nipperdipper,1000,21,Title1,Company1,1/1/2024,1,12,123-456-1235,100 Test Lane,,City1,TX,77007,US,321,1,1/1/2024

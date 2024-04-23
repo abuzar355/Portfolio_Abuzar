@@ -1,0 +1,15 @@
+D:\MyUpdatedChatApp\MyUpdatedChatApp\obj\Debug\MyUpdatedChatApp.vbproj.AssemblyReference.cache
+D:\MyUpdatedChatApp\MyUpdatedChatApp\obj\Debug\MyUpdatedChatApp.MyUpdatedChatApp.Form1.resources
+D:\MyUpdatedChatApp\MyUpdatedChatApp\obj\Debug\MyUpdatedChatApp.Resources.resources
+D:\MyUpdatedChatApp\MyUpdatedChatApp\obj\Debug\MyUpdatedChatApp.vbproj.GenerateResource.cache
+D:\MyUpdatedChatApp\MyUpdatedChatApp\obj\Debug\MyUpdatedChatApp.vbproj.CoreCompileInputs.cache
+D:\MyUpdatedChatApp\MyUpdatedChatApp\bin\Debug\MyUpdatedChatApp.exe.config
+D:\MyUpdatedChatApp\MyUpdatedChatApp\bin\Debug\MyUpdatedChatApp.exe
+D:\MyUpdatedChatApp\MyUpdatedChatApp\bin\Debug\MyUpdatedChatApp.pdb
+D:\MyUpdatedChatApp\MyUpdatedChatApp\bin\Debug\MyUpdatedChatApp.xml
+D:\MyUpdatedChatApp\MyUpdatedChatApp\bin\Debug\Newtonsoft.Json.dll
+D:\MyUpdatedChatApp\MyUpdatedChatApp\bin\Debug\Newtonsoft.Json.xml
+D:\MyUpdatedChatApp\MyUpdatedChatApp\obj\Debug\MyUpdatedChatApp.vbproj.CopyComplete
+D:\MyUpdatedChatApp\MyUpdatedChatApp\obj\Debug\MyUpdatedChatApp.exe
+D:\MyUpdatedChatApp\MyUpdatedChatApp\obj\Debug\MyUpdatedChatApp.xml
+D:\MyUpdatedChatApp\MyUpdatedChatApp\obj\Debug\MyUpdatedChatApp.pdb
