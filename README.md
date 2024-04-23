@@ -1,3 +1,6 @@
+*Please check the seperate readme files for each projects for further informations*
+
+
 ------ AI ChatApp Using C# .NET ------
 
 Description:
