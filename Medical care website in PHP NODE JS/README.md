@@ -4,5 +4,5 @@ About the Project:
 - Virtual Appoinments with multiple doctors list
 - Admin Portal to manage the Patients and Doctors
 - Telemedicince Module
-- Fron-end is made using JS using AJX with Request JSON
+- Fron-end is made using React JS using AJX with Request JSON
 - Back end is based in PHP And Node JS
