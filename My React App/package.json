@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://abuzar355.github.io/Portfolio_Abuzar",
   "scripts": {
     "start": "concurrently \"npm run dev\" \"npm run json\"",
     "dev": "vite",
