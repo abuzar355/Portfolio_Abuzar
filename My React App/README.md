@@ -52,37 +52,7 @@ Azar Clothing & Shoes is dedicated to providing an exceptional online shopping e
 
 Project screenshots:
 
-# Home page in dark mode
-
-
-# Home page in light mode
-
-
-# Shop page
-
-
-# Single product page
-
-
-# Wishlist page
-
-
-# Login page
-
-
-# Register page
-
-
-# Cart page
-
-
-# User profile page
-
-
-# Order history page
-
-
-
-
-
-
+![4](https://github.com/abuzar355/Portfolio_Abuzar/assets/62141366/e4689a04-ea49-4ec6-b3b1-2f7af4ab0123)
+![3](https://github.com/abuzar355/Portfolio_Abuzar/assets/62141366/272bc6c1-97f8-43c6-a651-967609408d42)
+![2](https://github.com/abuzar355/Portfolio_Abuzar/assets/62141366/9ecd0a21-c1fa-47ff-8e12-095db7f25252)
+![1](https://github.com/abuzar355/Portfolio_Abuzar/assets/62141366/1d9e8f30-bde4-4a62-9e99-0d1b000a0622)
