@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            text-align: center;
+        }
+        .google-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border: 1px solid #dcdcdc;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .google-button img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        .google-button span {
+            font-size: 14px;
+            color: #444;
+        }
+        .loading-spinner {
+            display: none;
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div id="loadingSpinner" class="loading-spinner"></div>
+        <div id="googleButton" class="google-button" onclick="loginWithGoogle()">
+            <img src="https://th.bing.com/th/id/OIP.11MuQ3wMgAAMoYLZA0allAHaHa?rs=1&pid=ImgDetMain" alt="Google Logo">
+            <span>Sign in with Google</span>
+        </div>
+    </div>
+    <script>
+        function loginWithGoogle() {
+            window.location.href = "/login";
+        }
+        function checkLogin() {
+            const jwt = localStorage.getItem('jwt');
+            if (jwt) {
+                document.getElementById('loadingSpinner').style.display = 'block';
+                document.getElementById('googleButton').style.display = 'none';
+                fetch('/get_user_info', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + jwt
+                    }
+                }).then(response => response.json())
+                  .then(data => {
+                      document.getElementById('loadingSpinner').style.display = 'none';
+                      if (data.valid) {
+                          window.location.href = "/welcome";
+                      } else {
+                          localStorage.removeItem('jwt');
+                          document.getElementById('googleButton').style.display = 'block';
+                      }
+                  });
+            }
+        }
+        window.onload = checkLogin;
+    </script>
+</body>
+</html>

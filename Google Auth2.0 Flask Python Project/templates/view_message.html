@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Message</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .message-container {
+            text-align: center;
+        }
+        .back-button {
+            background-color: #ff5c5c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="message-container">
+        <h1>User Message:</h1>
+        <p id="userMessage"></p>
+        <button class="back-button" onclick="goBack()">Back</button>
+    </div>
+    <script>
+        function getMessage() {
+            const jwt = localStorage.getItem('jwt');
+            if (jwt) {
+                fetch('/get_message', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + jwt
+                    }
+                }).then(response => response.json())
+                  .then(data => {
+                      if (data.valid) {
+                          document.getElementById('userMessage').innerText = data.message;
+                      } else {
+                          window.location.href = "/";
+                      }
+                  });
+            } else {
+                window.location.href = "/";
+            }
+        }
+
+        function goBack() {
+            window.location.href = "/welcome";
+        }
+
+        window.onload = getMessage;
+    </script>
+</body>
+</html>

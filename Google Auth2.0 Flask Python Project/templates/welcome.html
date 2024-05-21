@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .welcome-container {
+            text-align: center;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .logout-button {
+            background-color: #ff5c5c;
+        }
+        .message-container {
+            margin-top: 20px;
+        }
+        .message-input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <h1 id="welcome">Welcome</h1>
+        <p id="email"></p>
+        <div class="message-container">
+            <input type="text" id="messageInput" class="message-input" placeholder="Enter your message">
+            <div class="button-container">
+                <button class="button" onclick="submitMessage()">Submit</button>
+                <button class="button" id="viewButton" onclick="viewMessage()" style="display:none;">View Message</button>
+                <button class="button logout-button" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function getUserInfo() {
+            const jwt = localStorage.getItem('jwt');
+            if (jwt) {
+                fetch('/get_user_info', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + jwt
+                    }
+                }).then(response => response.json())
+                  .then(data => {
+                      if (data.valid) {
+                          document.getElementById('welcome').innerText = 'Welcome ' + data.user.name;
+                          document.getElementById('email').innerText = data.user.email;
+                      } else {
+                          localStorage.removeItem('jwt');
+                          window.location.href = "/";
+                      }
+                  });
+            } else {
+                window.location.href = "/";
+            }
+        }
+
+        function submitMessage() {
+            const jwt = localStorage.getItem('jwt');
+            const message = document.getElementById('messageInput').value;
+            if (jwt && message) {
+                fetch('/submit_message', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + jwt
+                    },
+                    body: JSON.stringify({ message: message })
+                }).then(response => response.json())
+                  .then(data => {
+                      if (data.success) {
+                          alert('Message sent successfully');
+                          document.getElementById('viewButton').style.display = 'block';
+                      } else {
+                          alert('Failed to send message');
+                      }
+                  });
+            }
+        }
+
+        function viewMessage() {
+            window.location.href = "/view_message";
+        }
+
+        function logout() {
+            localStorage.removeItem('jwt');
+            window.location.href = "/";
+        }
+
+        window.onload = getUserInfo;
+    </script>
+</body>
+</html>
